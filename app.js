@@ -4,17 +4,6 @@ const selectElement = document.querySelector(".filters");
 const result = document.querySelector(".character-list");
 const loading = document.querySelector(".loading");
 
-function getApiUrl(type) {
-  const BASE_API_URL = 'https://ihatov08.github.io/kimetsu_api/api/';
-  const API_URLS = {
-    'all': `${BASE_API_URL}${type}.json`,
-    'hashira': `${BASE_API_URL}${type}.json`,
-    'oni': `${BASE_API_URL}${type}.json`,
-    'kisatsutai': `${BASE_API_URL}${type}.json`
-  };
-  return API_URLS[type];
-}
-
 // APIからデータを取得
 async function fetchAllCharacters(apiUrl) {
   try {
@@ -30,7 +19,8 @@ async function fetchAllCharacters(apiUrl) {
 }
 
 async function displayCharacters(type) {
-  const apiUrl = getApiUrl(type);
+  const BASE_API_URL = 'https://ihatov08.github.io/kimetsu_api/api/';
+  const apiUrl = `${BASE_API_URL}${type}.json`;
   const fetchCharacter = await fetchAllCharacters(apiUrl);
   
   if(fetchCharacter) {
