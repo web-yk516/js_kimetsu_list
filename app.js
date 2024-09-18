@@ -5,13 +5,14 @@ const result = document.querySelector(".character-list");
 const loading = document.querySelector(".loading");
 
 function getApiUrl(type) {
-  const apiUrls = {
-    'all': 'https://ihatov08.github.io/kimetsu_api/api/all.json',
-    'hashira': 'https://ihatov08.github.io/kimetsu_api/api/hashira.json',
-    'oni': 'https://ihatov08.github.io/kimetsu_api/api/oni.json',
-    'kisatsutai': 'https://ihatov08.github.io/kimetsu_api/api/kisatsutai.json'
+  const BASE_API_URL = 'https://ihatov08.github.io/kimetsu_api/api/';
+  const API_URLS = {
+    'all': `${BASE_API_URL}${type}.json`,
+    'hashira': `${BASE_API_URL}${type}.json`,
+    'oni': `${BASE_API_URL}${type}.json`,
+    'kisatsutai': `${BASE_API_URL}${type}.json`
   };
-  return apiUrls[type];
+  return API_URLS[type];
 }
 
 // APIからデータを取得
